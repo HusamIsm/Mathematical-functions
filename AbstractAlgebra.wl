@@ -11,7 +11,7 @@ subgroupEquivalence::usage = "subgroupEquivalence[n,i,r] shows which subgroups <
 Begin["`Private`"];
 
 
-modMat[x_,y_,p_]:= Inner[#1*#2&, x,y, Mod[Plus[##],p]&]
+modMat[x_,y_,p_]:= MatrixForm[Inner[#1*#2&, x,y, Mod[Plus[##],p]&]]
 
 
 cyclicSubGroup[gen_,degree_]:= Module[{list = {gen},curr = gen},
