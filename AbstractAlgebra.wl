@@ -25,7 +25,7 @@ list]
 subgroupEquivalence[n_,i_,r_]:= Select[Range[r],GCD[i,n] == GCD[#,n]&]
 
 
-matOrder[a_,p_,n_]:= FixedPointList[modMat[First@#,a,3]&,MatrixForm[a],SameTest -> (First@# == IdentityMatrix[n]&)];
+matOrder[a_,p_,n_]:= DeleteDuplicates@FixedPointList[modMat[First@#,a,3]&,MatrixForm[a],SameTest -> (First@# == IdentityMatrix[n]&)];
 
 
 End[];
