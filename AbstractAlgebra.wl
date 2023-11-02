@@ -9,7 +9,13 @@ subgroupEquivalence::usage = "subgroupEquivalence[n,i,r] shows which subgroups <
 matOrder::usage = "matOrder[matrix a, p,n] finds the order of an element of a nxn matrix mod p";
 
 
+specialLinearGroup::usage = "Generates the special linear group mod p of degree n";
+
+
 Begin["`Private`"];
+
+
+specialLinearGroup[p_,n_]:= MatrixForm /@ Select[Tuples[Range[0,p-1],{n,n}],Det[#,Modulus->p]== 1 &]
 
 
 modMat[x_,y_,p_]:= MatrixForm[Inner[#1*#2&, x,y, Mod[Plus[##],p]&]]
